@@ -156,18 +156,19 @@ def sub_categorized_social(tokens):
     score_sports=0
     Library_a=['event','upcoming']
     Library_e=['association']
-    Dictionary_ex={"New Year's Party":datetime.datetime(2000, 1, 1), "Valentine's Dinner":datime.datetime(2000, 2, 14), "Carnival Night":datetime.datetime(2000, 3, 1), "Karaoke Night":datetime.datetime(2000, 4, 18), "Kayaking Trip":datetime.datetime(2000, 5, 5), "Seaside Picnic":datetime.datetime(2000, 9, 15), "Halloween Party":datetime.datetime(2000, 10, 31), "Thanksgiving Jamboree":datetime.datetime(2000, 11, 26), "Christmas Dinner":datetime.datetime(2000, 12, 18)}
+    Dictionary_months={"New Year's Party":1, "Valentine's Dinner":2, "Carnival Night":3, "Karaoke Night":4, "Kayaking Trip":5, "Seaside Picnic":9, "Halloween Party":10, "Thanksgiving Jamboree":11, "Christmas Dinner":12}
+    Dictionary_days={"New Year's Party":1, "Valentine's Dinner":14, "Carnival Night":1, "Karaoke Night":18, "Kayaking Trip":5, "Seaside Picnic":15, "Halloween Party":31, "Thanksgiving Jamboree":26, "Christmas Dinner":18}
 
-    # TIME LOGIC
+    # TIME COMPARISON LOGIC
 
-
-        print("I would like to recommand three up coming events:", Library_ex[0],Library_ex[1],Library_ex[2])
-    elif score_sports>score_study:
-        print("seems you wish join an association! our university offer five types of association:artist, international, debate, Science&Society and Environment, which type you would want to try?") 
-        sub_2_categorized_social(text_dealing())
-    elif score_sports==score_study:
-        print("seems you answer is not clear, could you tell me more about the details you want?")
-        sub_categorized_social(text_dealing())
+    # DISREGARD FOR NOW
+        # print("I would like to recommand three up coming events:", Library_ex[0],Library_ex[1],Library_ex[2])
+    # elif score_sports>score_study:
+        # print("seems you wish join an association! our university offer five types of association:artist, international, debate, Science&Society and Environment, which type you would want to try?") 
+        # sub_2_categorized_social(text_dealing())
+    # elif score_sports==score_study:
+        # print("seems you answer is not clear, could you tell me more about the details you want?")
+        # sub_categorized_social(text_dealing())
     
 def sub_2_categorized_social(tokens):
     Library_type1=['artist',['poetry pals','painting and pottery']]
