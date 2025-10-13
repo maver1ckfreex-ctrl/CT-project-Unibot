@@ -1,4 +1,5 @@
 import random
+import datetime
 
 def fire(token, match):                 #we need consider verb/noun variations that's the first problem we meet
     letters=list(token)
@@ -39,27 +40,27 @@ def fire(token, match):                 #we need consider verb/noun variations t
  of letters in the different sequence or position of a word like "event" ->"events"  the suffix give more weights for calculation """               
     
 def categorized(tokens):
-    score_1=0
-    score_2=0
-    score_3=0
+    score_study=0
+    score_sports=0
+    score_social=0
     for token in tokens:                    #we need find a more effiency search/match algorithm that's the second problem we meet
         for words in Library_1:
             if fire(token,words)==1:
                 print(token,words)
-                score_1+=1
+                score_study+=1
         for words in Library_2:
             if fire(token,words)==1:
                 print(token,words)
-                score_2+=1
+                score_sports+=1
         for words in Library_3:
             if fire(token,words)==1:
-                score_3+=1
-    print(score_1,score_2,score_3)   
-    if score_1>max(score_2,score_3):
+                score_social+=1
+    print(score_study,score_sports,score_social)   
+    if score_study>max(score_sports,score_social):
         return 'study'
-    elif score_2>max(score_3,score_1):
+    elif score_sports>max(score_social,score_study):
         return 'sports'
-    elif score_3>max(score_1,score_2):
+    elif score_social>max(score_study,score_sports):
         return 'social'
     else:
         return 'uncertain'
@@ -67,56 +68,55 @@ def categorized(tokens):
 def sub_categorized_study(tokens):
     Library_a=['struggle','difficult','difficulty','bad','help','anxiety','nervous']
     Library_b=['interesting','information','interest','practical']
-    score_1=0
-    score_2=0
+    score_study=0
+    score_sports=0
     for token in tokens:                    #we need find a more effiency search/match algorithm that's the second problem we meet
         for words in Library_a:
             if fire(token,words)==1:
                 print(token,words)
-                score_1+=1
+                score_study+=1
         for words in Library_b:
             if fire(token,words)==1:
                 print(token,words)
-                score_2+=1
-    print(score_1,score_2)   
-    if score_1>score_2:
-        print("No worries! there are lots of ways can help you, would you mind work on it with fellow students or not?")
+                score_sports+=1
+    print(score_study,score_sports)   
+    if score_study>score_sports:
+        print("No worries! There are lots of ways we can help you, would you mind working on it with fellow students or not?")
         sub_2_categorized_study(text_dealing())
     else:
-        print("Very interesting topic, maybe you can contact form of the Student Desk!")
+        print("Very interesting topic, maybe you can see the contact form of the Student Desk!")
 
 def sub_2_categorized_study(tokens):
     Library_ax1=['do not',"dont",'not','hate','shy','no']
-    score_1=0
+    score_study=0
     for token in tokens:                    #we need find a more effiency search/match algorithm that's the second problem we meet
         for words in Library_ax1:
             if fire(token,words)==1:
-                score_1=score_1+1  
-    if score_1>0:
- 
-            print("I suggest you can seeking out a study group for what you are struggling now.")
+                score_study=score_study+1  
+    if score_study>0:
+            print("I suggest you can seek out a study group for what you are struggling with now.")
     else:
-            print("I suggest you can seeking out a student advisor for what you are struggling now.")
+            print("I suggest you can seek out a student advisor for what you are struggling with now.")
 
 
 def sub_categorized_sports(tokens):
-    score_1=0
-    score_2=0
+    score_study=0
+    score_sports=0
     Library_a_s=['aikido','basketball','tennis','swimming','football','zumba','karate','yoga','waterpolo','specific','play']
     Library_b=['try','new','explore','find','taste',"don't",'do not','no'] 
     for token in tokens:
         for words in Library_a_s:
             if fire(token,words)==1:
                 print(token,words)
-                score_1+=1
+                score_study+=1
         for words in Library_b:
             if fire(token,words)==1:
                 print(token,words)
-                score_2+=1
-    print(score_1,score_2)   
-    if score_1>score_2:
+                score_sports+=1
+    print(score_study,score_sports)   
+    if score_study>score_sports:
         print('you are lucky, this is sport is available in our university, you can find more information on University Sports Centre website!')
-    elif score_1<score_2: 
+    elif score_study<score_sports: 
         print("seems you want try new sport! our university offer ballgames, cardio and strengh training, which type you would want to try?") 
         sub_2_categorized_sports(text_dealing())
     else:
@@ -127,25 +127,25 @@ def sub_2_categorized_sports(tokens):
     Library_ballgame=['basketball','tennis','football','waterpolo']
     Library_cardio=['zumba','yoga']
     Library_strgenth=['aikido','karate','swimming']
-    score_1=0
-    score_2=0
-    score_3=0
+    score_study=0
+    score_sports=0
+    score_social=0
     for token in tokens:                    #we need find a more effiency search/match algorithm that's the second problem we meet
         for words in Library_1:
             if fire(token,'strgenth'):
                 print(token,words)
-                score_1+=1
+                score_study+=1
             if fire(token,'cardio')==1:
                 print(token,words)
-                score_2+=1
+                score_sports+=1
             if fire(token,'ballgames')==1:
-                score_3+=1
-    print(score_1,score_2,score_3)   
-    if score_1>max(score_2,score_3):
+                score_social+=1
+    print(score_study,score_sports,score_social)   
+    if score_study>max(score_sports,score_social):
         print('nice choice, I would like to recommend',random.choice(Library_strgenth))
-    elif score_2>max(score_3,score_1):
+    elif score_sports>max(score_social,score_study):
         print('nice choice, I would like to recommend',random.choice(Library_cardio))
-    elif score_3>max(score_1,score_2):
+    elif score_social>max(score_study,score_sports):
         print('nice choice, I would like to recommend',random.choice(Library_ballgame))
     else:
         print("seems I did'n understand your request, could you tell me agian?")
@@ -157,6 +157,7 @@ def sub_categorized_social(tokens):
     Library_a=['event','upcoming']
     Library_e=['association']
     Library_ex=["New Year's Party (13 Jan)","Valentine's Dinner (14 Feb)","Carnival Night (1 March)","Karaoke Night (18 April)","Kayaking Trip (5 May)","Seaside Picnic (15 Sep)","Halloween Party (31 Oct)","Thanksgiving Jamboree (26 Nov)","Christmas Dinner (18 Dec)"]
+    Dictionary_ex={"New Year's Party":datetime.datetime(2000, 1, 1), "Valentine's Dinner":datime.datetime(2000, 2, 14), "Carnival Night":datetime.datetime(2000, 3, 1), "Karaoke Night":datetime.datetime(2000, 4, 18), "Kayaking Trip":datetime.datetime(2000, 5, 5}
     for token in tokens:
         for words in Library_a:
             if fire(token,words)==1:
