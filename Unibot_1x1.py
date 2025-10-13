@@ -215,7 +215,7 @@ def text_dealing():
     text_token=original_text.split()
     return text_token    
 
-Library_1=['math','study','academic','book','scholarship','research','exam','learn','test','physics']
+Library_1=['math','study','academic','book','scholarship','research','exam','learn','test','physics','studies']
 Library_2=['sports','run','aikido','health','strong','play','basketball','tennis','swimming','football','zumba','karate','yoga','waterpolo']
 Library_3=['social','party','event','activity','association','club','friends','trip','night','picnic','festival','celebration']
 
