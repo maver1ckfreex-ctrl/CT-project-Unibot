@@ -151,6 +151,10 @@ def sub_2_categorized_sports(tokens):
         print("seems I did'n understand your request, could you tell me agian?")
         sub_2_categorized_sports(text_dealing())
 
+today = datetime.date.today()
+Dictionary_months={"New Year's Party":1, "Valentine's Dinner":2, "Carnival Night":3, "Karaoke Night":4, "Kayaking Trip":5, "Seaside Picnic":9, "Halloween Party":10, "Thanksgiving Jamboree":11, "Christmas Dinner":12}
+Dictionary_days={"New Year's Party":1, "Valentine's Dinner":14, "Carnival Night":1, "Karaoke Night":18, "Kayaking Trip":5, "Seaside Picnic":15, "Halloween Party":31, "Thanksgiving Jamboree":26, "Christmas Dinner":18}
+
 def days_until(name):
     m = Dictionary_months.get(name)
     d = Dictionary_days.get(name)
@@ -164,8 +168,6 @@ def days_until(name):
 def sub_categorized_social(tokens):
     Library_a=['event','upcoming']
     Library_e=['association']
-    Dictionary_months={"New Year's Party":1, "Valentine's Dinner":2, "Carnival Night":3, "Karaoke Night":4, "Kayaking Trip":5, "Seaside Picnic":9, "Halloween Party":10, "Thanksgiving Jamboree":11, "Christmas Dinner":12}
-    Dictionary_days={"New Year's Party":1, "Valentine's Dinner":14, "Carnival Night":1, "Karaoke Night":18, "Kayaking Trip":5, "Seaside Picnic":15, "Halloween Party":31, "Thanksgiving Jamboree":26, "Christmas Dinner":18}
     score_event = 0
     for t in tokens:
         for w in Library_a:
@@ -177,7 +179,6 @@ def sub_categorized_social(tokens):
             if fire(t, w) == 1:
                 score_assoc += 1
     if score_event >= score_assoc:
-        today = datetime.date.today()
         events = []
         for name in Dictionary_months:
             if name in Dictionary_days:
