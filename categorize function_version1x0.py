@@ -151,6 +151,16 @@ def sub_2_categorized_sports(tokens):
         print("seems I did'n understand your request, could you tell me agian?")
         sub_2_categorized_sports(text_dealing())
 
+def days_until(name):
+    m = Dictionary_months.get(name)
+    d = Dictionary_days.get(name)
+    if m is None or d is None:
+        return float('inf')
+    occ = datetime.date(today.year, m, d)
+    if occ < today:
+        occ = datetime.date(today.year + 1, m, d)
+    return (occ - today).days
+
 def sub_categorized_social(tokens):
     Library_a=['event','upcoming']
     Library_e=['association']
@@ -168,15 +178,6 @@ def sub_categorized_social(tokens):
                 score_assoc += 1
     if score_event >= score_assoc:
         today = datetime.date.today()
-        def days_until(name):
-            m = Dictionary_months.get(name)
-            d = Dictionary_days.get(name)
-            if m is None or d is None:
-                return float('inf')
-            occ = datetime.date(today.year, m, d)
-            if occ < today:
-                occ = datetime.date(today.year + 1, m, d)
-            return (occ - today).days
         events = []
         for name in Dictionary_months:
             if name in Dictionary_days:
