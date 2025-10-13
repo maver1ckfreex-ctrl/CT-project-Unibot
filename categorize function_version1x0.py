@@ -152,35 +152,36 @@ def sub_2_categorized_sports(tokens):
         sub_2_categorized_sports(text_dealing())
 
 def sub_categorized_social(tokens):
-    score_study=0
-    score_sports=0
     Library_a=['event','upcoming']
     Library_e=['association']
     Dictionary_months={"New Year's Party":1, "Valentine's Dinner":2, "Carnival Night":3, "Karaoke Night":4, "Kayaking Trip":5, "Seaside Picnic":9, "Halloween Party":10, "Thanksgiving Jamboree":11, "Christmas Dinner":12}
     Dictionary_days={"New Year's Party":1, "Valentine's Dinner":14, "Carnival Night":1, "Karaoke Night":18, "Kayaking Trip":5, "Seaside Picnic":15, "Halloween Party":31, "Thanksgiving Jamboree":26, "Christmas Dinner":18}
-
     score_event = 0
-    score_assoc = 0
-    for token in tokens:
+    for t in tokens:
         for w in Library_a:
-            if fire(token, w) == 1:
+            if fire(t, w) == 1:
                 score_event += 1
+    score_assoc = 0
+    for t in tokens:
         for w in Library_e:
-            if fire(token, w) == 1:
+            if fire(t, w) == 1:
                 score_assoc += 1
     if score_event >= score_assoc:
         today = datetime.date.today()
-        upcoming = []
-        for name, month in Dictionary_months.items():
-            if name not in Dictionary_days:
-                continue
-            day = Dictionary_days[name]
-            candidate = datetime.date(today.year, month, day)
-            if candidate < today:
-                candidate = datetime.date(today.year + 1, month, day)
-            upcoming.append((candidate, name))
-        upcoming.sort(key=lambda x: x[0])
-        top3 = [name for _, name in upcoming[:3]]
+        def days_until(name):
+            m = Dictionary_months.get(name)
+            d = Dictionary_days.get(name)
+            if m is None or d is None:
+                return float('inf')
+            occ = datetime.date(today.year, m, d)
+            if occ < today:
+                occ = datetime.date(today.year + 1, m, d)
+            return (occ - today).days
+        events = []
+        for name in Dictionary_months:
+            if name in Dictionary_days:
+                events.append(name)
+        top3 = sorted(events, key=days_until)[:3]
         if top3:
             print("I would like to recommend three upcoming events:", ", ".join(top3))
         else:
@@ -189,14 +190,6 @@ def sub_categorized_social(tokens):
         print("Seems an association is of interest! Our university offers artist, international, debate, Science&Society, and Environment—which type would be interesting?")
         sub_2_categorized_social(text_dealing())
 
-    # DISREGARD FOR NOW
-        # print("I would like to recommand three up coming events:", Library_ex[0],Library_ex[1],Library_ex[2])
-    # elif score_sports>score_study:
-        # print("seems you wish join an association! our university offer five types of association:artist, international, debate, Science&Society and Environment, which type you would want to try?") 
-        # sub_2_categorized_social(text_dealing())
-    # elif score_sports==score_study:
-        # print("seems you answer is not clear, could you tell me more about the details you want?")
-        # sub_categorized_social(text_dealing())
     
 def sub_2_categorized_social(tokens):
     Library_type1=['artist',['poetry pals','painting and pottery']]
