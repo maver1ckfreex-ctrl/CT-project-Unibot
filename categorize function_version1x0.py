@@ -171,8 +171,8 @@ def sub_categorized_social(tokens):
         Library_ex=["New Year's Party ","Valentine's Dinner","Carnival Night","Karaoke Night ","Kayaking Trip ","Seaside Picnic","Halloween Party","Thanksgiving Jamboree ","Christmas Dinner","New Year's Party ","Valentine's Dinner","Carnival Night"]
         List_m=[1,2,3,4,5,9,10,11,12,1,2,3]
         List_d=[13,14,1,18,5,15,31,26,18]
-        month=11
-        day=20
+        month=t.month
+        day=t.day
         print(month,day)
         i=0
         while i>=0:
@@ -241,7 +241,7 @@ def main():
         print("Oh, I think it's about sports, do you have a specific sport in mind? Would you tell me its name?")
         sub_categorized_sports(text_dealing())
     elif category=='social':
-        print("Oh, I think it's about Social activities, Our university has many interesting events and student association, which type you are interested in?")
+        print("Oh, I think it's about Social activities, Our university has many interesting events and student association. Are you interested in upcoming events or in some interesting associations?")
         sub_categorized_social(text_dealing())
     elif category=='uncertain':
         print("Sorry, it seems I can't understand your problem or this problem is in a field I can't help with. Try asking me again.")
