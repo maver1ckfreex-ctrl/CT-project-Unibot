@@ -125,8 +125,8 @@ def sub_categorized_sports(tokens):
 
 def sub_2_categorized_sports(tokens):
     Library_ballgame=['basketball','tennis','football','waterpolo']
-    Library_cardio=['zumba','yoga']
-    Library_strgenth=['aikido','karate','swimming']
+    Library_cardio=['zumba','swimming']
+    Library_strgenth=['aikido','karate','yoga']
     score_study=0
     score_sports=0
     score_social=0
