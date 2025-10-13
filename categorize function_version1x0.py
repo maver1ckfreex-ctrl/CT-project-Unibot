@@ -173,7 +173,6 @@ def sub_categorized_social(tokens):
         List_d=[13,14,1,18,5,15,31,26,18]
         month=t.month
         day=t.day
-        print(month,day)
         i=0
         while i>=0:
             if month>List_m[i]:
@@ -181,7 +180,7 @@ def sub_categorized_social(tokens):
             else:
                 break
         if month > List_m[i]:
-            print(Library_ex[i],Library_ex[i+1],Library_ex[i+2])
+            print("I would recommend", Library_ex[i],Library_ex[i+1],Library_ex[i+2])
         else:
             if day>=List_d[i]:
                 print("I would recommend", Library_ex[i+1],Library_ex[i+2],Library_ex[i+3])
