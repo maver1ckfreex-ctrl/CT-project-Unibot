@@ -156,7 +156,7 @@ def sub_categorized_social(tokens):
     score_2=0
     Library_a=['event','upcoming']
     Library_e=['association']
-    Library_ex=["New Year's Party (13 Jan)","Valentine's Dinner (14 Feb)","Carnival Night (1 March)","Karaoke Night (18 April)","Kayaking Trip (5 May)","Seaside Picnic (15 Sep)","Halloween Party (31 Oct)","Thanksgiving Jamboree (26 Nov)","Christmas Dinner (18 Dec)"]
+    # Library_ex=["New Year's Party (13 Jan)","Valentine's Dinner (14 Feb)","Carnival Night (1 March)","Karaoke Night (18 April)","Kayaking Trip (5 May)","Seaside Picnic (15 Sep)","Halloween Party (31 Oct)","Thanksgiving Jamboree (26 Nov)","Christmas Dinner (18 Dec)"]
     Dictionary_ex={"New Year's Party":datetime.datetime(2000, 1, 1), "Valentine's Dinner":datime.datetime(2000, 2, 14), "Carnival Night":datetime.datetime(2000, 3, 1), "Karaoke Night":datetime.datetime(2000, 4, 18), "Kayaking Trip":datetime.datetime(2000, 5, 5) ... } # TO BE FINISHED
     for token in tokens:
         for words in Library_a:
