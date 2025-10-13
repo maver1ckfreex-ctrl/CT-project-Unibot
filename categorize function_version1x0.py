@@ -159,7 +159,7 @@ def sub_categorized_social(tokens):
     Dictionary_months={"New Year's Party":1, "Valentine's Dinner":2, "Carnival Night":3, "Karaoke Night":4, "Kayaking Trip":5, "Seaside Picnic":9, "Halloween Party":10, "Thanksgiving Jamboree":11, "Christmas Dinner":12}
     Dictionary_days={"New Year's Party":1, "Valentine's Dinner":14, "Carnival Night":1, "Karaoke Night":18, "Kayaking Trip":5, "Seaside Picnic":15, "Halloween Party":31, "Thanksgiving Jamboree":26, "Christmas Dinner":18}
 
-   score_event = 0
+    score_event = 0
     score_assoc = 0
     for token in tokens:
         for w in Library_a:
