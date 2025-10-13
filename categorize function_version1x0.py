@@ -157,18 +157,10 @@ def sub_categorized_social(tokens):
     Library_a=['event','upcoming']
     Library_e=['association']
     Dictionary_ex={"New Year's Party":datetime.datetime(2000, 1, 1), "Valentine's Dinner":datime.datetime(2000, 2, 14), "Carnival Night":datetime.datetime(2000, 3, 1), "Karaoke Night":datetime.datetime(2000, 4, 18), "Kayaking Trip":datetime.datetime(2000, 5, 5), "Seaside Picnic":datetime.datetime(2000, 9, 15), "Halloween Party":datetime.datetime(2000, 10, 31), "Thanksgiving Jamboree":datetime.datetime(2000, 11, 26), "Christmas Dinner":datetime.datetime(2000, 12, 18)}
-    for token in tokens:
-        for words in Library_a:
-            if fire(token,words)==1:
-                print(token,words)
-                score_study+=1
-        for words in Library_e:
-            if fire(token,words)==1:
-                print(token,words)
-                score_sports+=1
-    print(score_study,score_sports)   
-    if score_study>score_sports:
-        random.shuffle(Library_ex)
+
+    # TIME LOGIC
+
+
         print("I would like to recommand three up coming events:", Library_ex[0],Library_ex[1],Library_ex[2])
     elif score_sports>score_study:
         print("seems you wish join an association! our university offer five types of association:artist, international, debate, Science&Society and Environment, which type you would want to try?") 
