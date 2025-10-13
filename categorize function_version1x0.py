@@ -152,8 +152,8 @@ def sub_2_categorized_sports(tokens):
         sub_2_categorized_sports(text_dealing())
 
 def sub_categorized_social(tokens):
-    score_1=0
-    score_2=0
+    score_study=0
+    score_sports=0
     Library_a=['event','upcoming']
     Library_e=['association']
     # Library_ex=["New Year's Party (13 Jan)","Valentine's Dinner (14 Feb)","Carnival Night (1 March)","Karaoke Night (18 April)","Kayaking Trip (5 May)","Seaside Picnic (15 Sep)","Halloween Party (31 Oct)","Thanksgiving Jamboree (26 Nov)","Christmas Dinner (18 Dec)"]
@@ -162,25 +162,23 @@ def sub_categorized_social(tokens):
         for words in Library_a:
             if fire(token,words)==1:
                 print(token,words)
-                score_1+=1
+                score_study+=1
         for words in Library_e:
             if fire(token,words)==1:
                 print(token,words)
-                score_2+=1
-    print(score_1,score_2)   
-    if score_1>score_2:
+                score_sports+=1
+    print(score_study,score_sports)   
+    if score_study>score_sports:
         random.shuffle(Library_ex)
         print("I would like to recommand three up coming events:", Library_ex[0],Library_ex[1],Library_ex[2])
-    elif score_2>score_1:
+    elif score_sports>score_study:
         print("seems you wish join an association! our university offer five types of association:artist, international, debate, Science&Society and Environment, which type you would want to try?") 
         sub_2_categorized_social(text_dealing())
-    elif score_2==score_1:
+    elif score_sports==score_study:
         print("seems you answer is not clear, could you tell me more about the details you want?")
         sub_categorized_social(text_dealing())
     
 def sub_2_categorized_social(tokens):
-    score_1=0
-    score_2=0
     Library_type1=['artist',['poetry pals','painting and pottery']]
     Library_type2=['international',['international students society','bunch of backpackers']]
     Library_type3=['debate',['debate club']]
@@ -213,24 +211,29 @@ def text_dealing():
     return text_token    
 
 
-Library_1=['math','study','academic','book','scholarship','research','exam','learn','test','physics'] # STUDYING KEYWORDS
-Library_2=['sports','run','aikido','health','strong','play','basketball','tennis','swimming','football','zumba','karate','yoga','waterpolo'] # SPORTS KEYWORDS
-Library_3=['social','party','event','activity','association','club','friends','trip','night','picnic','festival','celebration'] # STUDY LIFE KEYWORDS
-print("Hi, I'm Unibot. What can I help you with?")
+def main():
+    Library_1=['math','study','academic','book','scholarship','research','exam','learn','test','physics'] # STUDYING KEYWORDS
+    Library_2=['sports','run','aikido','health','strong','play','basketball','tennis','swimming','football','zumba','karate','yoga','waterpolo'] # SPORTS KEYWORDS
+    Library_3=['social','party','event','activity','association','club','friends','trip','night','picnic','festival','celebration'] # STUDY LIFE KEYWORDS
 
-category=categorized(text_dealing())
+    print("Hi, I'm Unibot. What can I help you with?")
 
-if category=='study':
-    print("Oh, I think it's about study, are you struggling with something or only interested in practical information?")
-    sub_categorized_study(text_dealing())
-if category=='sports':
-    print("Oh, I think it's about sports, do you have a specific sport in mind? Would you tell me its name?")
-    sub_categorized_sports(text_dealing())
-if category=='social':
-    print("Oh, I think it's about Social activities, Our university have many interesting events and student association, which type you are interesting?")
-    sub_categorized_social(text_dealing())
-if category=='uncertain':
-    print("Sorry, it seems I can't understand your problem or this problem of its field I can't help, try to ask me again, thank you")
+    category=categorized(text_dealing())
+
+    if category=='study':
+        print("Oh, I think it's about study, are you struggling with something or only interested in practical information?")
+        sub_categorized_study(text_dealing())
+    elif category=='sports':
+        print("Oh, I think it's about sports, do you have a specific sport in mind? Would you tell me its name?")
+        sub_categorized_sports(text_dealing())
+    elif category=='social':
+        print("Oh, I think it's about Social activities, Our university have many interesting events and student association, which type you are interesting?")
+        sub_categorized_social(text_dealing())
+    elif category=='uncertain':
+        print("Sorry, it seems I can't understand your problem or this problem of its field I can't help, try to ask me again, thank you")
+        category=categorized(text_dealing())
+        sub_categorized_sports(text_dealing())  
+    
 
     
     
