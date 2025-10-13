@@ -1,5 +1,5 @@
 import random
-import datetime
+from datetime import date
 
 def fire(token, match):                 #we need consider verb/noun variations that's the first problem we meet
     letters=list(token)
@@ -151,19 +151,6 @@ def sub_2_categorized_sports(tokens):
         print("seems I did'n understand your request, could you tell me agian?")
         sub_2_categorized_sports(text_dealing())
 
-today = datetime.date.today()
-Dictionary_months={"New Year's Party":1, "Valentine's Dinner":2, "Carnival Night":3, "Karaoke Night":4, "Kayaking Trip":5, "Seaside Picnic":9, "Halloween Party":10, "Thanksgiving Jamboree":11, "Christmas Dinner":12}
-Dictionary_days={"New Year's Party":1, "Valentine's Dinner":14, "Carnival Night":1, "Karaoke Night":18, "Kayaking Trip":5, "Seaside Picnic":15, "Halloween Party":31, "Thanksgiving Jamboree":26, "Christmas Dinner":18}
-
-def days_until(name):
-    m = Dictionary_months.get(name)
-    d = Dictionary_days.get(name)
-    if m is None or d is None:
-        return float('inf')
-    occ = datetime.date(today.year, m, d)
-    if occ < today:
-        occ = datetime.date(today.year + 1, m, d)
-    return (occ - today).days
 
 def sub_categorized_social(tokens):
     Library_a=['event','upcoming']
@@ -179,15 +166,27 @@ def sub_categorized_social(tokens):
             if fire(t, w) == 1:
                 score_assoc += 1
     if score_event >= score_assoc:
-        events = []
-        for name in Dictionary_months:
-            if name in Dictionary_days:
-                events.append(name)
-        top3 = sorted(events, key=days_until)[:3]
-        if top3:
-            print("I would like to recommend three upcoming events:", ", ".join(top3))
+        t = date.today()
+        day=t.day
+        Library_ex=["New Year's Party ","Valentine's Dinner","Carnival Night","Karaoke Night ","Kayaking Trip ","Seaside Picnic","Halloween Party","Thanksgiving Jamboree ","Christmas Dinner","New Year's Party ","Valentine's Dinner","Carnival Night"]
+        List_m=[1,2,3,4,5,9,10,11,12,1,2,3]
+        List_d=[13,14,1,18,5,15,31,26,18]
+        month=11
+        day=20
+        print(month,day)
+        i=0
+        while i>=0:
+            if month>List_m[i]:
+                i=i+1
+            else:
+                break
+        if month > List_m[i]:
+            print(Library_ex[i],Library_ex[i+1],Library_ex[i+2])
         else:
-            print("No upcoming events found at the moment.")
+            if day>=List_d[i]:
+                print("I would recommend", Library_ex[i+1],Library_ex[i+2],Library_ex[i+3])
+            else:
+                print("I would recommend", Library_ex[i], Library_ex[i+1], Library_ex[i+2])    
     else:
         print("Seems an association is of interest! Our university offers artist, international, debate, Science&Society, and Environment—which type would be interested in?")
         sub_2_categorized_social(text_dealing())
