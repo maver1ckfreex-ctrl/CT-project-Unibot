@@ -187,7 +187,7 @@ def sub_categorized_social(tokens):
             else:
                 print("I would recommend", Library_ex[i], Library_ex[i+1], Library_ex[i+2])    
     else:
-        print("Seems an association is of interest! Our university offers artist, international, debate, Science&Society, and Environment—which type would be interested in?")
+        print("Seems an association is of interest! Our university offers interesting areas of associations - artists, international, debate, Science&Society, and environment. Which of these areas would you be interested in?")
         sub_2_categorized_social(text_dealing())
 
     
@@ -201,20 +201,20 @@ def sub_2_categorized_social(tokens):
         if fire(token,Library_type1[0])==1:
             print(token,Library_type1[0])
             print("I would like to recommend",random.choice(Library_1[1]),'association.')
-        if fire(token,Library_type2[0])==1:
+        elif fire(token,Library_type2[0])==1:
             print(token)
             print("I would like to recommend",random.choice(Library_2[1]),'association.') 
-        if fire(token,Library_type3[0])==1:
+        elif fire(token,Library_type3[0])==1:
             print(token)
             print("I would like to recommend",Library_type3[1][0],'association.') 
-        if fire(token,Library_type4[0])==1 or fire(token,Library_type4[1])==1 :
+        elif fire(token,Library_type4[0])==1 or fire(token,Library_type4[1])==1 :
             print(token)
             print("I would like to recommend",random.choice(Library_type4[2]),'association.') 
-        if fire(token,Library_type5[0])==1:
+        elif fire(token,Library_type5[0])==1:
             print(token)
             print("I would like to recommend",random.choice(Library_type5[1]),'association.') 
         else:
-            print("seems we don't have this type of association, please try to tell me another type which our university has ")
+            print("Seems we don't have this type of association, please try to tell me another type which our university has ")
             sub_2_categorized_social(text_dealing())
 
 def text_dealing(): 
