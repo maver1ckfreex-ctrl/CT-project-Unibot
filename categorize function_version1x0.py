@@ -232,7 +232,8 @@ def main():
     elif category=='uncertain':
         print("Sorry, it seems I can't understand your problem or this problem of its field I can't help, try to ask me again, thank you")
         category=categorized(text_dealing())
-        sub_categorized_sports(text_dealing())  
+
+main()
     
 
     
