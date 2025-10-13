@@ -234,16 +234,16 @@ def main():
     category=categorized(text_dealing())
 
     if category=='study':
-        print("Oh, I think it's about study, are you struggling with something or only interested in practical information?")
+        print("Oh, I think it's about studying, are you struggling with something or only interested in practical information?")
         sub_categorized_study(text_dealing())
     elif category=='sports':
         print("Oh, I think it's about sports, do you have a specific sport in mind? Would you tell me its name?")
         sub_categorized_sports(text_dealing())
     elif category=='social':
-        print("Oh, I think it's about Social activities, Our university have many interesting events and student association, which type you are interesting?")
+        print("Oh, I think it's about Social activities, Our university has many interesting events and student association, which type you are interested in?")
         sub_categorized_social(text_dealing())
     elif category=='uncertain':
-        print("Sorry, it seems I can't understand your problem or this problem of its field I can't help, try to ask me again, thank you")
+        print("Sorry, it seems I can't understand your problem or this problem is in a field I can't help with. Try asking me again.")
         category=categorized(text_dealing())
 
 main()
