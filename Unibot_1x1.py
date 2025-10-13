@@ -5,8 +5,6 @@ from datetime import date
 def fire(token, match):                 
     letters=list(token)
     letters_m=list(match)
-    print(letters)
-    print(letters_m)
     match_times=0
     k=0
     for i in range(max(len(letters),len(letters_m))):
@@ -27,7 +25,6 @@ def fire(token, match):
                     k=k
                 else:
                     k=k+1
-    print(k)
     fit_value=match_times/(max(len(token),len(match))-k)
     if fit_value>0.7:
         return 1
