@@ -159,7 +159,35 @@ def sub_categorized_social(tokens):
     Dictionary_months={"New Year's Party":1, "Valentine's Dinner":2, "Carnival Night":3, "Karaoke Night":4, "Kayaking Trip":5, "Seaside Picnic":9, "Halloween Party":10, "Thanksgiving Jamboree":11, "Christmas Dinner":12}
     Dictionary_days={"New Year's Party":1, "Valentine's Dinner":14, "Carnival Night":1, "Karaoke Night":18, "Kayaking Trip":5, "Seaside Picnic":15, "Halloween Party":31, "Thanksgiving Jamboree":26, "Christmas Dinner":18}
 
-    # TIME COMPARISON LOGIC
+   score_event = 0
+    score_assoc = 0
+    for token in tokens:
+        for w in Library_a:
+            if fire(token, w) == 1:
+                score_event += 1
+        for w in Library_e:
+            if fire(token, w) == 1:
+                score_assoc += 1
+    if score_event >= score_assoc:
+        today = datetime.date.today()
+        upcoming = []
+        for name, month in Dictionary_months.items():
+            if name not in Dictionary_days:
+                continue
+            day = Dictionary_days[name]
+            candidate = datetime.date(today.year, month, day)
+            if candidate < today:
+                candidate = datetime.date(today.year + 1, month, day)
+            upcoming.append((candidate, name))
+        upcoming.sort(key=lambda x: x[0])
+        top3 = [name for _, name in upcoming[:3]]
+        if top3:
+            print("I would like to recommend three upcoming events:", ", ".join(top3))
+        else:
+            print("No upcoming events found at the moment.")
+    else:
+        print("Seems an association is of interest! Our university offers artist, international, debate, Science&Society, and Environment—which type would be interesting?")
+        sub_2_categorized_social(text_dealing())
 
     # DISREGARD FOR NOW
         # print("I would like to recommand three up coming events:", Library_ex[0],Library_ex[1],Library_ex[2])
