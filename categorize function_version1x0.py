@@ -1,7 +1,8 @@
 import random
 from datetime import date
 
-def fire(token, match):                 #we need consider verb/noun variations that's the first problem we meet
+
+def fire(token, match):                 
     letters=list(token)
     letters_m=list(match)
     print(letters)
@@ -38,12 +39,13 @@ def fire(token, match):                 #we need consider verb/noun variations t
 """ in this Fire function we calculate the degree of similarity between the tokens and words in our dictionary. but this is not a perfect
  version, cause we can't just match and judge the letter one by one, we should consider the principle of word formation and give the weight
  of letters in the different sequence or position of a word like "event" ->"events"  the suffix give more weights for calculation """               
-    
+
+
 def categorized(tokens):
     score_study=0
     score_sports=0
     score_social=0
-    for token in tokens:                    #we need find a more effiency search/match algorithm that's the second problem we meet
+    for token in tokens:                    
         for words in Library_1:
             if fire(token,words)==1:
                 print(token,words)
@@ -64,13 +66,14 @@ def categorized(tokens):
         return 'social'
     else:
         return 'uncertain'
-       
+
+
 def sub_categorized_study(tokens):
     Library_a=['struggle','difficult','difficulty','bad','help','anxiety','nervous']
     Library_b=['interesting','information','interest','practical']
     score_study=0
     score_sports=0
-    for token in tokens:                    #we need find a more effiency search/match algorithm that's the second problem we meet
+    for token in tokens:                    
         for words in Library_a:
             if fire(token,words)==1:
                 print(token,words)
@@ -89,7 +92,7 @@ def sub_categorized_study(tokens):
 def sub_2_categorized_study(tokens):
     Library_ax1=['do not',"dont",'not','hate','shy','no']
     score_study=0
-    for token in tokens:                    #we need find a more effiency search/match algorithm that's the second problem we meet
+    for token in tokens:                    
         for words in Library_ax1:
             if fire(token,words)==1:
                 score_study=score_study+1  
@@ -130,7 +133,7 @@ def sub_2_categorized_sports(tokens):
     score_study=0
     score_sports=0
     score_social=0
-    for token in tokens:                    #we need find a more effiency search/match algorithm that's the second problem we meet
+    for token in tokens:                    
         for words in Library_1:
             if fire(token,'strgenth'):
                 print(token,words)
@@ -189,7 +192,6 @@ def sub_categorized_social(tokens):
     else:
         print("Seems an association is of interest! Our university offers interesting areas of associations - artists, international, debate, Science&Society, and environment. Which of these areas would you be interested in?")
         sub_2_categorized_social(text_dealing())
-
     
 def sub_2_categorized_social(tokens):
     Library_type1=['artist',['poetry pals','painting and pottery']]
@@ -217,15 +219,16 @@ def sub_2_categorized_social(tokens):
             print("Seems we don't have this type of association, please try to tell me another type which our university has ")
             sub_2_categorized_social(text_dealing())
 
+
 def text_dealing(): 
     Original_text=input()
     original_text=Original_text.lower()
     text_token=original_text.split()
     return text_token    
 
-Library_1=['math','study','academic','book','scholarship','research','exam','learn','test','physics'] # STUDYING KEYWORDS
-Library_2=['sports','run','aikido','health','strong','play','basketball','tennis','swimming','football','zumba','karate','yoga','waterpolo'] # SPORTS KEYWORDS
-Library_3=['social','party','event','activity','association','club','friends','trip','night','picnic','festival','celebration'] # STUDY LIFE KEYWORDS
+Library_1=['math','study','academic','book','scholarship','research','exam','learn','test','physics']
+Library_2=['sports','run','aikido','health','strong','play','basketball','tennis','swimming','football','zumba','karate','yoga','waterpolo']
+Library_3=['social','party','event','activity','association','club','friends','trip','night','picnic','festival','celebration']
 
 def main():
 
