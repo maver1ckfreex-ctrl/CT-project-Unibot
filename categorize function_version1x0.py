@@ -120,7 +120,7 @@ def sub_categorized_sports(tokens):
         print("Seems you want try out a new sport! Our university offers ballgames, cardio and strength training, which type you would want to try?") 
         sub_2_categorized_sports(text_dealing())
     else:
-        print("It seems that our university doesn't offer this sport, do you want try a new one or have other things that you want to tell me?" )
+        print("It seems that our university doesn't offer this sport, do you want to try asking me about another sport?")
         sub_categorized_sports(text_dealing())
 
 def sub_2_categorized_sports(tokens):
