@@ -223,11 +223,11 @@ def text_dealing():
     text_token=original_text.split()
     return text_token    
 
+Library_1=['math','study','academic','book','scholarship','research','exam','learn','test','physics'] # STUDYING KEYWORDS
+Library_2=['sports','run','aikido','health','strong','play','basketball','tennis','swimming','football','zumba','karate','yoga','waterpolo'] # SPORTS KEYWORDS
+Library_3=['social','party','event','activity','association','club','friends','trip','night','picnic','festival','celebration'] # STUDY LIFE KEYWORDS
 
 def main():
-    Library_1=['math','study','academic','book','scholarship','research','exam','learn','test','physics'] # STUDYING KEYWORDS
-    Library_2=['sports','run','aikido','health','strong','play','basketball','tennis','swimming','football','zumba','karate','yoga','waterpolo'] # SPORTS KEYWORDS
-    Library_3=['social','party','event','activity','association','club','friends','trip','night','picnic','festival','celebration'] # STUDY LIFE KEYWORDS
 
     print("Hi, I'm Unibot. What can I help you with?")
 
@@ -247,8 +247,3 @@ def main():
         category=categorized(text_dealing())
 
 main()
-    
-
-    
-    
-
