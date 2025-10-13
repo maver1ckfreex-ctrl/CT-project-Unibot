@@ -115,12 +115,12 @@ def sub_categorized_sports(tokens):
                 score_sports+=1
     print(score_study,score_sports)   
     if score_study>score_sports:
-        print("You are lucky, this is sport is available in our university, you can find more information on University Sports Centre website!")
+        print("You are lucky, this is sport is available at our university, you can find more information on University Sports Centre website!")
     elif score_study<score_sports: 
         print("Seems you want try out a new sport! Our university offers ballgames, cardio and strength training, which type you would want to try?") 
         sub_2_categorized_sports(text_dealing())
     else:
-        print("It seems that our university doesn't offer this sport, do you want to try asking me about another sport?")
+        print("It seems that our university doesn't offer this sport. Do you want to try asking me if another sports exists at our university? Or would you like to try a new sport?")
         sub_categorized_sports(text_dealing())
 
 def sub_2_categorized_sports(tokens):
