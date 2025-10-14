@@ -90,9 +90,9 @@ def sub_2_categorized_study(tokens):
             if fire(token,words)==1:
                 score_study=score_study+1  
     if score_study>0:
-            print("I suggest you can seek out a study group for what you are struggling with now.")
-    else:
             print("I suggest you can seek out a student advisor for what you are struggling with now.")
+    else:
+            print("I suggest you can seek out a study group for what you are struggling with now.")
 
 
 def sub_categorized_sports(tokens):
