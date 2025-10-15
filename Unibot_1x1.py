@@ -130,7 +130,6 @@ def sub_2_categorized_sports(tokens):
                 score_sports+=1
             if fire(token,'ballgames')==1:
                 score_social+=1
-    print(score_study,score_sports,score_social)   
     if score_study>max(score_sports,score_social):
         print('nice choice, I would like to recommend',random.choice(Library_strength))
     elif score_sports>max(score_social,score_study):
