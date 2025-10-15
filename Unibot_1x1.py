@@ -196,7 +196,7 @@ def sub_2_categorized_social(tokens):
         elif fire(token,Library_type5[0])==1:
             print("I would like to recommend",random.choice(Library_type5[1]),'association.') 
         else:
-            print("Seems we don't have this type of association, please try to tell me another type which our university has ")
+            print("Seems we don't have this type of association, please try to tell me another area type that  our university has.")
             sub_2_categorized_social(text_dealing())
 
 
