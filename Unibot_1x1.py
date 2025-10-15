@@ -186,19 +186,14 @@ def sub_2_categorized_social(tokens):
     Library_type5=['environment',['Students for Sustainability','Animal Shelter Volunteers']]
     for token in tokens:
         if fire(token,Library_type1[0])==1:
-            print(token,Library_type1[0])
             print("I would like to recommend",random.choice(Library_1[1]),'association.')
         elif fire(token,Library_type2[0])==1:
-            print(token)
             print("I would like to recommend",random.choice(Library_2[1]),'association.') 
         elif fire(token,Library_type3[0])==1:
-            print(token)
             print("I would like to recommend",Library_type3[1][0],'association.') 
         elif fire(token,Library_type4[0])==1 or fire(token,Library_type4[1])==1 :
-            print(token)
             print("I would like to recommend",random.choice(Library_type4[2]),'association.') 
         elif fire(token,Library_type5[0])==1:
-            print(token)
             print("I would like to recommend",random.choice(Library_type5[1]),'association.') 
         else:
             print("Seems we don't have this type of association, please try to tell me another type which our university has ")
