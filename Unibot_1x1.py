@@ -52,7 +52,6 @@ def categorized(tokens):
         for words in Library_3:
             if fire(token,words)==1:
                 score_social+=1
-    print(score_study,score_sports,score_social)   
     if score_study>max(score_sports,score_social):
         return 'study'
     elif score_sports>max(score_social,score_study):
@@ -75,7 +74,6 @@ def sub_categorized_study(tokens):
         for words in Library_b:
             if fire(token,words)==1:
                 score_sports+=1
-    print(score_study,score_sports)   
     if score_study>score_sports:
         print("No worries! There are lots of ways we can help you, would you mind working on it with fellow students or not?")
         sub_2_categorized_study(text_dealing())
