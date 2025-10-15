@@ -105,7 +105,6 @@ def sub_categorized_sports(tokens):
         for words in Library_b:
             if fire(token,words)==1:
                 score_sports+=1
-    print(score_study,score_sports)   
     if score_study>score_sports:
         print("You are lucky, this is sport is available at our university, you can find more information on University Sports Centre website!")
     elif score_study<score_sports: 
