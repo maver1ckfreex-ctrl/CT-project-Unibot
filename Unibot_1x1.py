@@ -118,13 +118,13 @@ def sub_categorized_sports(tokens):
 def sub_2_categorized_sports(tokens):
     Library_ballgame=['basketball','tennis','football','waterpolo']
     Library_cardio=['zumba','swimming']
-    Library_strgenth=['aikido','karate','yoga']
+    Library_strength=['aikido','karate','yoga']
     score_study=0
     score_sports=0
     score_social=0
     for token in tokens:                    
         for words in Library_1:
-            if fire(token,'strgenth'):
+            if fire(token,'strength'):
                 score_study+=1
             if fire(token,'cardio')==1:
                 score_sports+=1
@@ -132,7 +132,7 @@ def sub_2_categorized_sports(tokens):
                 score_social+=1
     print(score_study,score_sports,score_social)   
     if score_study>max(score_sports,score_social):
-        print('nice choice, I would like to recommend',random.choice(Library_strgenth))
+        print('nice choice, I would like to recommend',random.choice(Library_strength))
     elif score_sports>max(score_social,score_study):
         print('nice choice, I would like to recommend',random.choice(Library_cardio))
     elif score_social>max(score_study,score_sports):
