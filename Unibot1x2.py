@@ -239,6 +239,6 @@ def main():
         sub_categorized_social(text_dealing())
     elif category=='uncertain':
         print("Sorry, it seems I can't understand your problem or this problem is in a field I can't help with. Try asking me again.")
-        category=categorized(text_dealing())
+        main()
 
 main()
