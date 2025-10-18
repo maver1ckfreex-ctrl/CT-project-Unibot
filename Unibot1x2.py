@@ -5,10 +5,9 @@ def event_recommend():
     t = date.today()
     day=t.day
     month=t.month
-    users_date=month+0.01*day
+    users_date=month+0.01*day    #convert date format from mm-dd to mm.dd like 09-22 to 9.22
     Library_ex=[0,"New Year's Party ","Valentine's Dinner","Carnival Night","Karaoke Night ","Kayaking Trip ","Seaside Picnic","Halloween Party","Thanksgiving Jamboree ","Christmas Dinner","New Year's Party ","Valentine's Dinner","Carnival Night"]
     List_m=[0,1.13,2.14,3.1,4.18,5.5,9.15,10.31,11.26,12.18]
-    #you can edit test date here like August 8th is 8.08
     low=0
     high=len(List_m)-1 #binary search
     while low<=high:
