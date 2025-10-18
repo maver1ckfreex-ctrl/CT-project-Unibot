@@ -14,10 +14,10 @@ def event_recommend():
         mid= low + (high -low) // 2
         if high-low == 1 :
             if List_m[mid+1] > users_date: 
-                print("Nice choice, I will recommend these three upcoming events:",Library_ex[mid+1],Library_ex[mid+2],Library_ex[mid+3])
+                print("I will recommend these three upcoming events:",Library_ex[mid+1],Library_ex[mid+2],Library_ex[mid+3])
                 break
             else:
-                print("Nice choice, I will recommend these three upcoming events:",Library_ex[mid+2],Library_ex[mid+3],Library_ex[mid+4])
+                print("I will recommend these three upcoming events:",Library_ex[mid+2],Library_ex[mid+3],Library_ex[mid+4])
                 break
         elif List_m[mid] < users_date:
             low=mid
