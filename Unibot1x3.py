@@ -51,13 +51,7 @@ def fire(token, match):
     if fit_value>0.7:
         return 1
     else:
-        return 0
-
-"""only consider the suffix, fully solve with symbol like ". , ? / " now we can control the match accurcy above 70% 
-(program can know says and say is same meaning, the longer the words is, the higher understanding the program can perfrom)"""
-""" in this Fire function we calculate the degree of similarity between the tokens and words in our dictionary. but this is not a perfect
- version, cause we can't just match and judge the letter one by one, we should consider the principle of word formation and give the weight
- of letters in the different sequence or position of a word like "event" ->"events"  the suffix give more weights for calculation """               
+        return 0             
 
 
 def categorized(tokens):
